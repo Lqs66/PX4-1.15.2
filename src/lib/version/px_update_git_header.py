@@ -36,7 +36,7 @@ header = """
 
 
 # PX4
-git_describe_cmd = 'git describe --exclude ext/* --always --tags --dirty'
+git_describe_cmd = 'echo v1.15.2'
 git_tag = subprocess.check_output(git_describe_cmd.split(),
                                   stderr=subprocess.STDOUT).decode('utf-8').strip()
 

@@ -112,12 +112,14 @@ include(px4_parse_function_args)
 #
 include(px4_git)
 
-execute_process(
-	COMMAND git describe --exclude ext/* --always --tags
-	OUTPUT_VARIABLE PX4_GIT_TAG
-	OUTPUT_STRIP_TRAILING_WHITESPACE
-	WORKING_DIRECTORY ${PX4_SOURCE_DIR}
-	)
+# execute_process(
+# 	COMMAND git describe --exclude ext/* --always --tags
+# 	OUTPUT_VARIABLE PX4_GIT_TAG
+# 	OUTPUT_STRIP_TRAILING_WHITESPACE
+# 	WORKING_DIRECTORY ${PX4_SOURCE_DIR}
+# 	)
+
+set(PX4_GIT_TAG "v1.15.2")
 
 # git describe to X.Y.Z version
 string(REPLACE "." ";" VERSION_LIST ${PX4_GIT_TAG})
@@ -220,6 +222,7 @@ endif()
 # project definition
 #
 project(px4 CXX C ASM)
+set (CMAKE_BUILD_TYPE "Debug" CACHE STRING "Choose the type of build." FORCE)
 
 # CMake build type (Debug Release RelWithDebInfo MinSizeRel Coverage)
 if(NOT CMAKE_BUILD_TYPE)
@@ -278,6 +281,7 @@ if(${PX4_PLATFORM} STREQUAL "posix")
 			"Use GNU gold linker" ON
 			"NOT WIN32;NOT APPLE" OFF
 	)
+	set(USE_LD_GOLD OFF)
 
 	if(USE_LD_GOLD)
 		execute_process(COMMAND ${CMAKE_C_COMPILER} -fuse-ld=gold -Wl,--version ERROR_QUIET OUTPUT_VARIABLE LD_VERSION)
