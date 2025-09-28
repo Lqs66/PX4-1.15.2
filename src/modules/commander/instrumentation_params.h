@@ -6,7 +6,7 @@
 // global parameter variables declaration
 extern uint32_t _ic_guard;
 extern uint32_t _ret_c_cycle;
-extern int32_t _time_c_cycle;
+extern uint32_t _time_c_cycle;
 
 // parameter handles declaration
 extern param_t _ic_guard_h;
