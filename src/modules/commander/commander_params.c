@@ -1044,3 +1044,36 @@ PARAM_DEFINE_FLOAT(COM_THROW_SPEED, 5);
  * @increment 1
  */
 PARAM_DEFINE_INT32(COM_FLTT_LOW_ACT, 3);
+
+/**
+ * Instrumentation Control Guard
+ *
+ * This parameter enables or disables the instrumentation.
+ *
+ * @group Instrumentation Config
+ * @min 0
+ * @max 1000
+ */
+PARAM_DEFINE_INT32(IC_GUARD, 0);
+
+/**
+ * Instrumentation Return Value Collection Cycle
+ *
+ * This parameter sets the cycles for the instrumentation return value collection.
+ *
+ * @group Instrumentation Config
+ * @min 0
+ * @max 20000
+ */
+PARAM_DEFINE_INT32(RET_C_CYCLE, 1000);
+
+/**
+ * Instrumentation Time Collection Cycle
+ *
+ * This parameter sets the cycles for the instrumentation time collection.
+ *
+ * @group Instrumentation Config
+ * @min 0
+ * @max 20000
+ */
+PARAM_DEFINE_INT32(TIME_C_CYCLE, 1000);
