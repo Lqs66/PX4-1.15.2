@@ -76,14 +76,14 @@
 #include "instrumentation_params.h"
 
 // global parameter variables
-uint32_t _ic_guard __attribute__((used)) = 0;
-uint32_t _ret_c_cycle __attribute__((used)) = 1000;
-uint32_t _time_c_cycle __attribute__((used)) = 1000;
+uint32_t _ic_guard __attribute__((used)) __attribute__((section(".forInstrumentation"))) = 0;
+uint32_t _ret_c_cycle __attribute__((used)) __attribute__((section(".forInstrumentation"))) = 1000;
+uint32_t _time_c_cycle __attribute__((used)) __attribute__((section(".forInstrumentation"))) = 1000;
 
 // parameter handles
-param_t _ic_guard_h __attribute__((used)) = param_find("IC_GUARD");
-param_t _ret_c_cycle_h __attribute__((used)) = param_find("RET_C_CYCLE");
-param_t _time_c_cycle_h __attribute__((used)) = param_find("TIME_C_CYCLE");
+param_t _ic_guard_h __attribute__((used)) __attribute__((section(".forInstrumentation"))) = param_find("IC_GUARD");
+param_t _ret_c_cycle_h __attribute__((used)) __attribute__((section(".forInstrumentation"))) = param_find("RET_C_CYCLE");
+param_t _time_c_cycle_h __attribute__((used)) __attribute__((section(".forInstrumentation"))) = param_find("TIME_C_CYCLE");
 
 typedef enum VEHICLE_MODE_FLAG {
 	VEHICLE_MODE_FLAG_CUSTOM_MODE_ENABLED  = 1,   /* 0b00000001 Reserved for future use. | */
